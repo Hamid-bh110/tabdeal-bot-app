@@ -44,13 +44,12 @@ jobs:
       - name: Show error summary
         if: always()
         run: |
-          echo "=== آخرین ۱۵۰ خط لاگ ==="
-          tail -n 150 build_output.log
+          echo "=== خطوط مربوط به خطا ==="
+          grep -n -B 3 -A 8 -E "error:|Error code:" build_output.log | tail -n 200
 
       - name: Check APK exists
         run: |
-          ls bin/*.apk 
-          / || (echo "APK ساخته نشد - build واقعاً شکست خورده" && exit 1)
+          ls bin/*.apk || (echo "APK ساخته نشد - build واقعاً شکست خورده" && exit 1)
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
