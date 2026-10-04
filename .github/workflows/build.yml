@@ -45,7 +45,7 @@ jobs:
         if: always()
         run: |
           echo "=== خطوط مربوط به خطا ==="
-          grep -n -B 3 -A 8 -E "error:|Error code:" build_output.log | tail -n 200
+          grep -n -B 60 -m 1 "Command failed" build_output.log code:" build_output.log | tail -n 200
 
       - name: Check APK exists
         run: |
