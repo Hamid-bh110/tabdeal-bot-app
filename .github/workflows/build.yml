@@ -27,7 +27,7 @@ jobs:
             build-essential ccache build-essential ccache libltdl-dev
 
       - name: Install Buildozer
-        run:run: grep -a -A 12 "Traceback" build_output.log | tail -n 40
+        run: grep -a -A 12 "Traceback" build_output.log | tail -n 40
           pip install --upgrade pip
           pip install buildozer "cython<3" virtualenv setuptools
 
