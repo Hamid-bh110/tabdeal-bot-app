@@ -39,7 +39,7 @@ jobs:
 
       - name: Show error summary
         if: failure()
-        run:  grep -a -B 25 "Command failed" build_output.log | grep -a -v "^# " | tail -n 30
+        run:   tail -n 40 build_output.log
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
